@@ -126,7 +126,12 @@ impl Solution {
         nums.len() as i32
     }
 
-    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+    pub fn remove_duplicates_5(nums: &mut Vec<i32>) -> i32 {
+        nums.dedup();
+        nums.len() as i32
+    }
+
+    pub fn remove_duplicates_6(nums: &mut Vec<i32>) -> i32 {
         let mut i = nums.len() - 1;
 
         while i > 0 {
@@ -139,9 +144,25 @@ impl Solution {
         nums.len() as i32
     }
 
-    pub fn remove_duplicates_5(nums: &mut Vec<i32>) -> i32 {
-        nums.dedup();
-        nums.len() as i32
+    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        let mut count = 0;
+        let mut found_number: Option<i32> = None;
+
+        for key in 0..nums.len() {
+            let num = nums[key];
+            if let Some(last_value) = found_number {
+                if last_value != num {
+                    nums[count as usize] = num;
+                    found_number = Some(num);
+                    count += 1;
+                }
+            } else {
+                found_number = Some(num);
+                count += 1;
+            }
+        }
+
+        count
     }
 }
 
@@ -152,7 +173,8 @@ mod tests {
     #[test]
     fn test_1() {
         let mut nums = vec![1, 1, 2];
-        let result_nums = vec![1, 2];
+        // let result_nums = vec![1, 2];
+        let result_nums = vec![1, 2, 2];
 
         assert_eq!(Solution::remove_duplicates(&mut nums), 2);
         assert_eq!(nums, result_nums);
@@ -161,7 +183,8 @@ mod tests {
     #[test]
     fn test_2() {
         let mut nums = vec![0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
-        let result_nums = vec![0, 1, 2, 3, 4];
+        // let result_nums = vec![0, 1, 2, 3, 4];
+        let result_nums = vec![0, 1, 2, 3, 4, 2, 2, 3, 3, 4];
 
         assert_eq!(Solution::remove_duplicates(&mut nums), 5);
         assert_eq!(nums, result_nums);
