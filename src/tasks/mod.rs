@@ -12,4 +12,5 @@ pub mod reverse_prefix;
 pub mod roman_to_int;
 pub mod search_insert;
 pub mod shared;
+pub mod str_str;
 pub mod two_sum;
