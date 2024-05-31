@@ -12,8 +12,7 @@
 /// - 0 <= strs[i].length <= 200;
 /// - strs[i] consists of only lowercase English letters.
 ///
-
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     pub fn longest_common_prefix_1(strs: Vec<String>) -> String {

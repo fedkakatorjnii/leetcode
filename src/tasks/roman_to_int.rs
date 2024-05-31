@@ -36,17 +36,7 @@
 /// - s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M');
 /// - It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 ///
-
-struct Solution {}
-
-/// Symbol       Value
-/// I             1
-/// V             5
-/// X             10
-/// L             50
-/// C             100
-/// D             500
-/// M             1000
+use super::shared::Solution;
 
 impl Solution {
     pub fn roman_to_int(s: String) -> i32 {

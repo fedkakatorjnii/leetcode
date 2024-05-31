@@ -24,8 +24,7 @@
 /// - -10^9 <= nums1[i], nums2[j] <= 10^9;
 ///
 /// Follow up: Can you come up with an algorithm that runs in O(m + n) time?
-
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {

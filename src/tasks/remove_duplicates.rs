@@ -35,8 +35,7 @@
 /// - 1 <= nums.length <= 3 * 10^4;
 /// - -100 <= nums[i] <= 100;
 /// - nums is sorted in non-decreasing order.
-
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     pub fn remove_duplicates_1(nums: &mut Vec<i32>) -> i32 {

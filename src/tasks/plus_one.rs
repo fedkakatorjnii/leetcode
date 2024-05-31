@@ -15,8 +15,8 @@
 /// - 0 <= digits[i] <= 9;
 /// - digits does not contain any leading 0's.
 ///
+use super::shared::Solution;
 
-pub struct Solution {}
 impl Solution {
     pub fn plus_one_1(digits: Vec<i32>) -> Vec<i32> {
         let mut result = digits.clone();

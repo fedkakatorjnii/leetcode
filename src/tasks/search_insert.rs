@@ -15,8 +15,7 @@
 /// - nums contains distinct values sorted in ascending order;
 /// - -10^4 <= target <= 10^4.
 ///
-
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     // O(n)

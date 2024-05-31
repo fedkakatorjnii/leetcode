@@ -15,8 +15,7 @@
 // - 1 <= s.length <= 10^4;
 // - s consists of parentheses only '()[]{}'.
 //
-
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     pub fn open_bracket(count: i32) -> i32 {

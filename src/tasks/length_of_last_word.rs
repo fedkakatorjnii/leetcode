@@ -13,8 +13,7 @@
 /// s consists of only English letters and spaces ' ';
 /// There will be at least one word in s.
 ///
-
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     pub fn length_of_last_word_1(s: String) -> i32 {

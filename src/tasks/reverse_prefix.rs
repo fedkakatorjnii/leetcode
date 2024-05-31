@@ -19,8 +19,7 @@
 /// - word consists of lowercase English letters;
 /// - ch is a lowercase English letter.
 ///
-
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     pub fn reverse_prefix(word: String, ch: char) -> String {

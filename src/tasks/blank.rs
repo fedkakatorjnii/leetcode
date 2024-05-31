@@ -1,4 +1,4 @@
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     pub fn example() {

@@ -10,8 +10,7 @@
 ///
 /// Follow up: Could you solve it without converting the integer to a string?
 ///
-
-pub struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     fn is_palindrome(x: i32) -> bool {

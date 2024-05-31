@@ -33,8 +33,7 @@
 ///
 /// If all assertions pass, then your solution will be accepted.
 ///
-
-struct Solution {}
+use super::shared::Solution;
 
 impl Solution {
     pub fn remove_element_1(nums: &mut Vec<i32>, val: i32) -> i32 {
