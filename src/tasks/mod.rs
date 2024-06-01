@@ -1,6 +1,7 @@
 pub mod is_isomorphic;
 pub mod is_palindrome;
 pub mod is_palindrome_2;
+pub mod is_subsequence;
 pub mod is_valid;
 pub mod length_of_last_word;
 pub mod longest_common_prefix;

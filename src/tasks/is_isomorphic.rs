@@ -170,7 +170,7 @@ impl Solution {
         return true;
     }
 
-    pub fn is_isomorphic(s: String, t: String) -> bool {
+    pub fn is_isomorphic_1(s: String, t: String) -> bool {
         let mut result: HashSet<String> = HashSet::new();
         let mut s_map: HashMap<char, String> = HashMap::new();
         let mut t_map: HashMap<char, String> = HashMap::new();
@@ -204,6 +204,116 @@ impl Solution {
 
         result.len() == 0
     }
+
+    pub fn insert(map: &mut HashMap<char, String>, ch: char, key: usize) {
+        if let Some(value) = map.get_mut(&ch) {
+            *value = format!("{}{}", *value, key);
+        } else {
+            map.insert(ch, format!("{key}"));
+        }
+    }
+
+    pub fn is_isomorphic_2(s: String, t: String) -> bool {
+        if s.len() != t.len() {
+            return false;
+        }
+        let mut s_chars = s.chars();
+        let mut t_chars = t.chars();
+
+        let mut s_map: HashMap<char, String> = HashMap::new();
+        let mut t_map: HashMap<char, String> = HashMap::new();
+
+        for key in 0..s.len() {
+            let s_char = s_chars.next().unwrap();
+            let t_char = t_chars.next().unwrap();
+
+            let s_char_fround = match s_map.get(&s_char) {
+                Some(value) => value,
+                None => "",
+            };
+            let t_char_fround = match t_map.get(&t_char) {
+                Some(value) => value,
+                None => "",
+            };
+
+            if *s_char_fround != *t_char_fround {
+                return false;
+            }
+
+            if let Some(value) = s_map.get_mut(&s_char) {
+                *value = format!("{}{}", *value, key);
+            } else {
+                s_map.insert(s_char, format!("{key}"));
+            }
+            if let Some(value) = t_map.get_mut(&t_char) {
+                *value = format!("{}{}", *value, key);
+            } else {
+                t_map.insert(t_char, format!("{key}"));
+            }
+        }
+
+        return true;
+    }
+
+    pub fn is_isomorphic_3(s: String, t: String) -> bool {
+        if s.len() != t.len() {
+            return false;
+        }
+
+        let mut s_chars = s.chars();
+        let mut t_chars = t.chars();
+
+        let mut map: HashMap<char, char> = HashMap::new();
+        let mut set: HashSet<char> = HashSet::new();
+
+        for _ in 0..s.len() {
+            let s_char = s_chars.next().unwrap();
+            let t_char = t_chars.next().unwrap();
+
+            if let Some(value) = map.get(&s_char) {
+                if *value != t_char {
+                    return false;
+                }
+            } else {
+                if set.get(&t_char).is_some() {
+                    return false;
+                }
+
+                map.insert(s_char, t_char);
+                set.insert(t_char);
+            }
+        }
+
+        true
+    }
+
+    pub fn is_isomorphic(s: String, t: String) -> bool {
+        if s.len() != t.len() {
+            return false;
+        }
+
+        let mut map: HashMap<char, char> = HashMap::new();
+        let mut set: HashSet<char> = HashSet::new();
+
+        for (key, s_char) in s.chars().enumerate() {
+            let t_char = t.chars().skip(key).next().unwrap();
+
+            if let Some(value) = map.get(&s_char) {
+                if *value != t_char {
+                    return false;
+                }
+            } else {
+                if set.get(&t_char).is_some() {
+                    return false;
+                }
+
+                map.insert(s_char, t_char);
+                set.insert(t_char);
+            }
+        }
+
+        true
+    }
 }
 
 #[cfg(test)]
@@ -232,6 +342,15 @@ mod tests {
     fn is_isomorphic_3() {
         let s = "aaba".to_string();
         let t = "babb".to_string();
+        let result = false;
+
+        assert_eq!(Solution::is_isomorphic(s, t), result);
+    }
+
+    #[test]
+    fn is_isomorphic_4() {
+        let s = "badc".to_string();
+        let t = "baba".to_string();
         let result = false;
 
         assert_eq!(Solution::is_isomorphic(s, t), result);
