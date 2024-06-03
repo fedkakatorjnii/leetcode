@@ -17,3 +17,4 @@ pub mod search_insert;
 pub mod shared;
 pub mod str_str;
 pub mod two_sum;
+pub mod word_pattern;
