@@ -1,4 +1,5 @@
 pub mod can_construct;
+pub mod is_happy;
 pub mod is_isomorphic;
 pub mod is_palindrome;
 pub mod is_subsequence;
