@@ -5,6 +5,7 @@ pub mod is_palindrome;
 pub mod is_subsequence;
 pub mod is_valid;
 pub mod length_of_last_word;
+pub mod length_of_longest_substring;
 pub mod longest_common_prefix;
 pub mod majority_element;
 pub mod max_profit;
