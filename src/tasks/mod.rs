@@ -10,6 +10,7 @@ pub mod longest_common_prefix;
 pub mod majority_element;
 pub mod max_profit;
 pub mod merge;
+pub mod merge_56;
 pub mod plus_one;
 pub mod remove_duplicates;
 pub mod remove_element;
