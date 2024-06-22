@@ -13,6 +13,7 @@ pub mod merge;
 pub mod merge_56;
 pub mod plus_one;
 pub mod remove_duplicates;
+pub mod remove_duplicates_from_sorted_array_ii;
 pub mod remove_element;
 pub mod reverse_prefix;
 pub mod roman_to_int;
